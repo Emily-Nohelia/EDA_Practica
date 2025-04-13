@@ -26,8 +26,8 @@ for review in df_pen_sales["Review"]:
     pos += sum(w in positive_words for w in words)
     neg += sum(w in negative_words for w in words)
 
-plt.figure(figsize=(8, 8))
+plt.figure(figsize=(6, 6))
 plt.pie([pos, neg], labels=["Positive", "Negative"], colors=['SkyBlue','Blue'],
         explode=(0,0), autopct="%1.1f%%", startangle=140)
-plt.title("Sentiment Analysis")
+plt.title("Sentiment Analysis of Reviews")
 plt.show()
