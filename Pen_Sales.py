@@ -50,15 +50,15 @@ plt.show()
 #       Traza un gráfico de barras horizontales para mayor claridad.
 #       Visualización: 📊 Gráfico de barras horizontales (bolígrafos más vendidos)
 
-#conteo_de_Productos = df_pen_sales.groupby("Item").value_counts()
-#print(conteo_de_Productos)
-#plt.figure(figsize = (10, 5))
-#conteo_de_Productos.plot(kind="barh", color = "skyblue")
-#plt.title("ranking de Popularidad de los Productos")
-#plt.xlabel("Cantidad de ventas de Los Productos")
-#plt.ylabel("Tipo de Producto")
-#plt.gca().invert_yaxis()
-#plt.show()
+conteo_de_Productos = df_pen_sales.groupby("Item").value_counts()
+print(conteo_de_Productos)
+plt.figure(figsize = (10, 5))
+conteo_de_Productos.plot(kind="barh", color = "skyblue")
+plt.title("ranking de Popularidad de los Productos")
+plt.xlabel("Cantidad de ventas de Los Productos")
+plt.ylabel("Tipo de Producto")
+plt.gca().invert_yaxis()
+plt.show()
 
 
 #Análisis de Tiempo de Entrega
@@ -96,7 +96,22 @@ print(tiempo_medio_de_entrega)
 #       Visualización: 🥧 Gráfico de pastel o circular (críticas positivas vs. negativas)
 #       Nombre de la Persona | No me Gusto por tal cosa.....
 
-review =  df_pen_sales["Review"]
-positive_words = ["I like it", "I love it", "Love", "Good","Excellent","best"]
-positive_count = review.str.contains("|".join (positive_words), case = False).sum()
-print(positive_count)
+df_pen_sales ["Review"] = df_pen_sales ["Review"].fillna("")
+positive_words = ["love", "great", "good", "amazing", "excellent", "best"]
+negative_words = ["bad", "poor", "dislike", "terrible", "worst", "disappointed", "unfortunately"]
+
+#def preprocess_text(text):
+    #text = text.lower().translate(str.maketrans("", "", string.punctuation))
+    #return text.split()
+
+#pos, neg = 0, 0
+#for review in df_pen_sales ["Review"]:
+ #   words = preprocess_text(review)
+  #  pos += sum(w in positive_words for w in words)
+   # neg += sum(w in negative_words for w in words)
+
+#plt.figure(figsize=(8, 8))
+#plt.pie([pos, neg], labels=["Positive", "Negative"], colors=["#4CAF50","#F44336"],
+ #       explode=(0.1,0), autopct="%1.1f%%", startangle=140)
+#plt.title("Sentiment Analysis")
+#plt.show()
