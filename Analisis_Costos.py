@@ -14,6 +14,7 @@ df_pen_sales = pd.read_excel(file_path, sheet_name="Pen Sales")
 print(df_pen_sales.dtypes)
 
 df_avg_pen_costs = df_pen_sales.groupby("Item")["Shipping Cost"].mean()
+df_avg_pen_costs = df_avg_pen_costs.sort_values(ascending=True) #Ordena los valores de menor a mayor
 print(df_avg_pen_costs)
 
 plt.figure(figsize = (10, 5))
