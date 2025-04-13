@@ -16,7 +16,7 @@ conteo_de_Productos = df_pen_sales["Item"].value_counts()
 
 print(conteo_de_Productos)
 plt.figure(figsize = (10, 5))
-conteo_de_Productos.plot(kind="barh", color = "skyblue")
+conteo_de_Productos.plot(kind="barh", color = "green")
 plt.title("ranking de Popularidad de los Productos")
 plt.xlabel("Cantidad de ventas de Los Productos")
 plt.ylabel("Tipo de Producto")
